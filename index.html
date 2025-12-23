@@ -3,801 +3,358 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Asma Hattab — Data & Analytics Portfolio</title>
-  <meta name="description" content="Asma Hattab — Data Analyst | SQL, Python, Tableau, Power BI. Turning messy data into clear decisions and useful products." />
+  <title>Asma Hattab — Data / Analytics / Engineering</title>
+
+  <!-- Social preview -->
+  <meta name="description" content="Asma Hattab — Data Analyst / Data Engineer (Exploring). Building dashboards, EDA, models, pipelines, and automation." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #f6f7ff;
-      --text: #0f1222;
-      --muted: rgba(15,18,34,.68);
-      --card: rgba(255,255,255,.62);
-      --card2: rgba(255,255,255,.78);
-      --stroke: rgba(15,18,34,.10);
-      --shadow: 0 18px 60px rgba(15,18,34,.12);
-      --shadow2: 0 10px 30px rgba(15,18,34,.10);
-      --radius: 22px;
-      --radius2: 18px;
-      --max: 1120px;
-
-      --accent1: #6a5cff;
-      --accent2: #00b3ff;
-      --accent3: #ff4fd8;
-      --accent4: #23c55e;
-    }
-
-    *{ box-sizing: border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 15% 10%, rgba(106,92,255,.22), transparent 60%),
-                  radial-gradient(900px 600px at 85% 15%, rgba(0,179,255,.18), transparent 55%),
-                  radial-gradient(1100px 700px at 30% 90%, rgba(255,79,216,.16), transparent 60%),
-                  radial-gradient(900px 600px at 85% 85%, rgba(35,197,94,.12), transparent 60%),
-                  var(--bg);
-      overflow-x:hidden;
-    }
-
-    a{ color:inherit; text-decoration:none; }
-    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
-
-    /* subtle grain */
-    .grain{
-      pointer-events:none;
-      position:fixed; inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.35;
-    }
-
-    /* Top nav */
-    .topbar{
-      position: sticky;
-      top: 14px;
-      z-index: 40;
-      padding: 10px 0;
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 12px 14px;
-      border:1px solid var(--stroke);
-      border-radius: 999px;
-      background: rgba(255,255,255,.55);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow2);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding-left:8px;
-      min-width: 180px;
-    }
-    .dot{
-      width:11px; height:11px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(106,92,255,.12);
-    }
-    .brand b{ font-weight:800; letter-spacing:-.02em; }
-    .brand span{ color: var(--muted); font-size: 13px; font-weight: 500; }
-
-    .menu{
-      display:flex;
-      gap: 8px;
-      align-items:center;
-      justify-content:center;
-      flex-wrap: wrap;
-    }
-    .pill{
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: rgba(15,18,34,.72);
-      border: 1px solid transparent;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .pill:hover{
-      background: rgba(255,255,255,.65);
-      border-color: var(--stroke);
-      transform: translateY(-1px);
-    }
-
-    .cta{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.65);
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-      box-shadow: 0 8px 20px rgba(15,18,34,.08);
-      cursor:pointer;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.82); }
-    .btn.primary{
-      border: 1px solid rgba(15,18,34,.14);
-      background: rgba(15,18,34,.92);
-      color: white;
-    }
-    .btn.primary:hover{ box-shadow: 0 18px 44px rgba(15,18,34,.22); }
-
-    /* Hero */
-    .hero{
-      padding: 46px 0 24px;
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .card{
-      background: var(--card);
-      border:1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-    }
-    .hero-main{
-      padding: 28px 28px 22px;
-      position: relative;
-      overflow:hidden;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.62);
-      font-weight: 700;
-      color: rgba(15,18,34,.78);
-      width: fit-content;
-    }
-    .tag i{
-      width:10px; height:10px; border-radius:50%;
-      background: var(--accent2);
-      box-shadow: 0 0 0 6px rgba(0,179,255,.12);
-      display:inline-block;
-    }
-    h1{
-      margin: 18px 0 12px;
-      font-size: clamp(42px, 5.2vw, 70px);
-      line-height: .97;
-      letter-spacing: -0.04em;
-    }
-    .grad{
-      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 60ch;
-      font-weight: 500;
-    }
-    .hero-actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .mini-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .mini{
-      padding: 14px 14px 13px;
-      border-radius: var(--radius2);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.70);
-      min-height: 78px;
-    }
-    .mini .k{ font-size: 12px; color: rgba(15,18,34,.55); font-weight: 700; text-transform: uppercase; letter-spacing: .08em;}
-    .mini .v{ margin-top: 6px; font-weight: 800; letter-spacing: -.02em;}
-    .mini .v small{ color: rgba(15,18,34,.62); font-weight: 700; }
-
-    /* Side snapshot */
-    .hero-side{
-      padding: 18px;
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .window{
-      padding: 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      overflow:hidden;
-      position: relative;
-    }
-    .window-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom: 12px;
-    }
-    .dots{ display:flex; gap: 7px; }
-    .dots span{
-      width: 9px; height: 9px; border-radius:50%;
-      background: rgba(15,18,34,.16);
-    }
-    .window-title{
-      font-weight: 800;
-      color: rgba(15,18,34,.70);
-      letter-spacing: -.02em;
-    }
-    .note{
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 10px 26px rgba(15,18,34,.08);
-      transform: translateZ(0);
-    }
-    .note h3{
-      margin: 0 0 8px;
-      font-size: 14px;
-      letter-spacing: -.01em;
-    }
-    .note p{
-      margin: 0;
-      color: rgba(15,18,34,.70);
-      line-height: 1.55;
-      font-size: 14px;
-      font-weight: 550;
-    }
-    .chips{
-      display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .chip{
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.72);
-      font-weight: 800;
-      font-size: 13px;
-      color: rgba(15,18,34,.72);
-      transition: transform .2s ease;
-    }
-    .chip:hover{ transform: translateY(-1px); }
-
-    /* Sections */
-    section{ padding: 26px 0; }
-    .section-head{
-      display:flex;
-      align-items:flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-    .section-head h2{
-      margin:0;
-      font-size: 28px;
-      letter-spacing: -.03em;
-    }
-    .section-head p{
-      margin:0;
-      color: var(--muted);
-      font-weight: 550;
-      max-width: 64ch;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-    }
-    .col-4{ grid-column: span 4; }
-    .col-6{ grid-column: span 6; }
-    .col-8{ grid-column: span 8; }
-    .col-12{ grid-column: span 12; }
-
-    .block{
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.62);
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(14px);
-      min-height: 120px;
-    }
-    .block h3{
-      margin: 0 0 10px;
-      font-size: 15px;
-      letter-spacing: -.02em;
-    }
-    .block p{
-      margin: 0;
-      color: rgba(15,18,34,.72);
-      line-height: 1.6;
-      font-weight: 550;
-      font-size: 14px;
-    }
-
-    .work-card{
-      position:relative;
-      overflow:hidden;
-    }
-    .work-card .badge{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      font-weight: 900;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(15,18,34,.62);
-      margin-bottom: 12px;
-    }
-    .work-card .badge i{
-      width:10px; height:10px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      display:inline-block;
-      box-shadow: 0 0 0 6px rgba(106,92,255,.12);
-    }
-    .work-card .title{
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -.02em;
-      margin:0 0 8px;
-    }
-    .work-card .meta{
-      margin-top: 14px;
-      display:flex;
-      gap:8px;
-      flex-wrap: wrap;
-    }
-    .meta span{
-      font-size: 12px;
-      font-weight: 800;
-      color: rgba(15,18,34,.62);
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.70);
-    }
-
-    /* Timeline */
-    .timeline{
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .role{
-      padding: 16px;
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.62);
-      box-shadow: var(--shadow2);
-    }
-    .role .top{
-      display:flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .role .top b{ font-weight: 900; letter-spacing:-.02em;}
-    .role .top span{ color: rgba(15,18,34,.62); font-weight: 750; }
-    .role ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(15,18,34,.72);
-      line-height: 1.55;
-      font-weight: 550;
-      font-size: 14px;
-    }
-    .role li{ margin: 6px 0; }
-
-    /* Contact */
-    .contact{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      padding: 18px;
-    }
-    .contact .left h3{ margin:0 0 6px; font-size: 18px; letter-spacing:-.02em;}
-    .contact .left p{ margin:0; color: var(--muted); font-weight: 550; }
-
-    footer{
-      padding: 26px 0 40px;
-      color: rgba(15,18,34,.55);
-      font-weight: 600;
-      font-size: 13px;
-      text-align:center;
-    }
-
-    /* Motion */
-    .reveal{
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.show{
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero{ grid-template-columns: 1fr; }
-      .mini-grid{ grid-template-columns: 1fr; }
-      .brand{ min-width: unset; }
-    }
-    @media (max-width: 900px){
-      .col-4{ grid-column: span 12; }
-      .col-6{ grid-column: span 12; }
-      .col-8{ grid-column: span 12; }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <div class="grain"></div>
-
-  <div class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Home">
-          <span class="dot" aria-hidden="true"></span>
-          <div>
-            <b>Asma Hattab</b><br />
-            <span>Data • ML • Analytics</span>
-          </div>
-        </a>
-
-        <nav class="menu" aria-label="Primary">
-          <a class="pill" href="#work">Work</a>
-          <a class="pill" href="#skills">Skills</a>
-          <a class="pill" href="#experience">Experience</a>
-          <a class="pill" href="#about">About</a>
-          <a class="pill" href="#contact">Contact</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn" href="https://www.linkedin.com/in/asma-hattab/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn primary" href="#work">Explore</a>
-        </div>
-      </div>
-    </div>
+  <!-- Ambient background -->
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="noise"></div>
   </div>
 
-  <main id="top" class="container">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="card hero-main reveal">
-        <div class="tag"><i></i> Data Science • Machine Learning • Analytics</div>
+  <!-- Top nav -->
+  <header class="top">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Asma Hattab</span>
+      </a>
 
-        <h1>
-          Turning messy data <br/>
-          into <span class="grad">clear decisions</span> <br/>
-          and <span class="grad">useful products</span>.
+      <button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="links" id="navLinks">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="pill">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroLeft">
+        <div class="chip reveal">
+          <span class="liveDot"></span>
+          <span id="roleText">Data • Analytics • Engineering</span>
+        </div>
+
+        <h1 class="title reveal">
+          Turning messy data into
+          <span class="grad">clear decisions</span>
+          and
+          <span class="grad2">useful products</span>.
         </h1>
 
-        <p class="lead">
-          I’m Asma — a detail-oriented Data Analyst with hands-on experience in <b>SQL</b>, <b>Python</b>, <b>Excel</b>,
-          and BI tools like <b>Tableau</b> and <b>Power BI</b>. I love clean dashboards, practical models, and insights that
-          help people and teams move faster.
+        <p class="subtitle reveal">
+          I’m Asma — building with <strong>Python</strong>, <strong>SQL</strong>, and <strong>BI</strong>.
+          I enjoy clean dashboards, practical models, and pipelines that help teams move faster.
+          <span class="hint">Currently exploring: <strong>Data Analyst</strong> & <strong>Data Engineer</strong> paths.</span>
         </p>
 
-        <div class="hero-actions">
+        <div class="ctaRow reveal">
           <a class="btn primary" href="#work">Explore my work</a>
-          <a class="btn" href="https://github.com/asma-h99" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.kaggle.com/asmahattab" target="_blank" rel="noreferrer">Kaggle</a>
-          <a class="btn" href="https://public.tableau.com/app/profile/asma.hattab/vizzes" target="_blank" rel="noreferrer">Tableau</a>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
         </div>
 
-        <div class="mini-grid">
+        <div class="miniCards reveal">
           <div class="mini">
-            <div class="k">Focus</div>
-            <div class="v">Analytics <small>+ ML</small></div>
+            <div class="miniLabel">Focus</div>
+            <div class="miniValue">Analytics + Engineering</div>
           </div>
           <div class="mini">
-            <div class="k">Tooling</div>
-            <div class="v">Python • SQL • BI</div>
+            <div class="miniLabel">Tooling</div>
+            <div class="miniValue">Python • SQL • BI</div>
           </div>
           <div class="mini">
-            <div class="k">Location</div>
-            <div class="v">Amman, Jordan</div>
+            <div class="miniLabel">Location</div>
+            <div class="miniValue">Amman, Jordan</div>
           </div>
         </div>
       </div>
 
-      <aside class="card hero-side reveal">
-        <div class="window">
-          <div class="window-top">
-            <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-            <div class="window-title">Live Snapshot</div>
+      <div class="heroRight reveal">
+        <div class="panel">
+          <div class="panelTop">
+            <span class="winDot"></span><span class="winDot"></span><span class="winDot"></span>
+            <span class="panelTitle">Live Snapshot</span>
           </div>
 
-          <div class="note">
-            <h3>What I care about</h3>
-            <p>Clarity • Simplicity • Storytelling</p>
-          </div>
+          <div class="panelGrid">
+            <div class="card floating">
+              <h3>What I care about</h3>
+              <p>Clarity • Simplicity • Storytelling</p>
+            </div>
 
-          <div class="note" style="margin-top: 10px;">
-            <h3>Data / ML Portfolio</h3>
-            <p>Real-world impact projects (dashboards, EDA, models, pipelines).</p>
-            <div class="chips">
-              <a class="chip" href="https://github.com/asma-h99" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="chip" href="https://www.kaggle.com/asmahattab" target="_blank" rel="noreferrer">Kaggle</a>
-              <a class="chip" href="https://public.tableau.com/app/profile/asma.hattab/vizzes" target="_blank" rel="noreferrer">Tableau</a>
-              <a class="chip" href="https://www.linkedin.com/in/asma-hattab/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <div class="card">
+              <h3>Data / ML Portfolio</h3>
+              <p>Real-world impact projects</p>
+
+              <div class="pillRow">
+                <a class="pillLink" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
+                <a class="pillLink" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
+                <a class="pillLink" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
+                <a class="pillLink" target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="card quote">
+              <div class="quoteMark">“</div>
+              <p>
+                Try to learn something about everything, and everything about something.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>What I build</h3>
+              <p>Dashboards • EDA • Models • Pipelines</p>
+              <div class="tags">
+                <span class="tag">Tableau</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+                <span class="tag">A/B Testing</span>
+              </div>
             </div>
           </div>
-
-          <div class="note" style="margin-top: 10px;">
-            <h3>Personal motto</h3>
-            <p>“Try to learn something about everything, and everything about something.”</p>
-          </div>
         </div>
 
-        <div class="block" style="min-height:auto;">
-          <h3>What I build</h3>
-          <p>Dashboards • EDA • Models • Pipelines • Experiments (A/B testing)</p>
+        <div class="statusBar reveal">
+          <span class="status">
+            <span class="statusDot"></span>
+            Open to opportunities
+          </span>
+          <span class="status small">Data Analyst • Data Engineer (Exploring)</span>
         </div>
-      </aside>
-    </div>
+      </div>
+    </section>
 
     <!-- WORK -->
-    <section id="work">
-      <div class="section-head">
+    <section id="work" class="section">
+      <div class="sectionHead">
         <h2 class="reveal">Selected Work</h2>
-        <p class="reveal">We’ll plug in your best projects + Tableau vizzes here. For now these are placeholders.</p>
+        <p class="muted reveal">
+          Replace placeholders with your real projects (Tableau links, GitHub repos, Kaggle notebooks).
+        </p>
       </div>
 
-      <div class="grid">
-        <div class="block work-card col-4 reveal">
-          <div class="badge"><i></i> Analytics Project</div>
-          <p class="title">Education vs Unemployment (US Counties)</p>
-          <p>End-to-end analysis: cleaning, modeling, and insights with a dashboard story.</p>
-          <div class="meta">
-            <span>SQL</span><span>Python</span><span>Tableau</span>
+      <div class="grid3">
+        <article class="workCard reveal">
+          <div class="workTop">
+            <span class="badge">Analytics</span>
+            <span class="muted small">Tableau / EDA</span>
           </div>
-        </div>
+          <h3>Education vs Unemployment (US Counties)</h3>
+          <p>
+            End-to-end analysis: cleaning, insights, and visualization. Built a dashboard to highlight patterns across counties.
+          </p>
+          <div class="workLinks">
+            <a target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">View Dashboard</a>
+            <a target="_blank" rel="noopener" href="https://github.com/asma-h99">Repo</a>
+          </div>
+        </article>
 
-        <div class="block work-card col-4 reveal">
-          <div class="badge"><i></i> Dashboard</div>
-          <p class="title">Operations Insights (Support Data)</p>
-          <p>Monthly Excel dashboards to optimize staffing and identify recurring issues.</p>
-          <div class="meta">
-            <span>Excel</span><span>KPIs</span><span>Storytelling</span>
+        <article class="workCard reveal">
+          <div class="workTop">
+            <span class="badge">Data</span>
+            <span class="muted small">SQL / Excel</span>
           </div>
-        </div>
+          <h3>Support Ops Insights (Service Desk)</h3>
+          <p>
+            Analyzed support activity trends, peak hours, recurring issues, and workload distribution; produced monthly dashboards.
+          </p>
+          <div class="workLinks">
+            <a href="#about">Case Summary</a>
+            <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
+          </div>
+        </article>
 
-        <div class="block work-card col-4 reveal">
-          <div class="badge"><i></i> ML Basics</div>
-          <p class="title">Classification & Regression Experiments</p>
-          <p>Practical modeling experiments with careful evaluation and clean reporting.</p>
-          <div class="meta">
-            <span>scikit-learn</span><span>EDA</span><span>Metrics</span>
+        <article class="workCard reveal">
+          <div class="workTop">
+            <span class="badge">ML</span>
+            <span class="muted small">Scikit-learn</span>
           </div>
-        </div>
+          <h3>ML Challenge — 1st Place (Team)</h3>
+          <p>
+            Built and evaluated models, communicated results, and shipped clear insights for technical + non-technical audiences.
+          </p>
+          <div class="workLinks">
+            <a target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
+            <a target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
-      <div class="section-head">
+    <section id="skills" class="section">
+      <div class="sectionHead">
         <h2 class="reveal">Skills</h2>
-        <p class="reveal">A compact, recruiter-friendly summary of your technical + soft skills.</p>
+        <p class="muted reveal">A clean, readable version of your CV skills — with better hierarchy.</p>
       </div>
 
-      <div class="grid">
-        <div class="block col-6 reveal">
+      <div class="grid2">
+        <div class="skillCard reveal">
           <h3>Technical</h3>
-          <p>
-            <b>Programming & Databases:</b> Python (Pandas, NumPy, Matplotlib), SQL (MySQL, PostgreSQL).<br/>
-            <b>Data Analysis:</b> Statistics, Probability, EDA, Data Cleaning, Feature Engineering, A/B Testing.<br/>
-            <b>ML (Basics):</b> scikit-learn, Regression, Classification.<br/>
-            <b>Visualization & BI:</b> Tableau, Power BI, Excel (PivotTables, Power Query).<br/>
-            <b>Cloud & Platforms:</b> AWS (Cloud Practitioner), Snowflake/Redshift (basic).<br/>
-            <b>Collaboration:</b> Git, GitHub, Jira, Slack.
-          </p>
+          <ul class="list">
+            <li><strong>Programming & Databases:</strong> Python (Pandas, NumPy, Matplotlib), SQL (MySQL, PostgreSQL)</li>
+            <li><strong>Analysis:</strong> Statistics, Probability, EDA, Data Cleaning, Feature Engineering, A/B Testing</li>
+            <li><strong>Machine Learning (Basics):</strong> Regression, Classification, Scikit-learn</li>
+            <li><strong>Visualization & BI:</strong> Tableau, Power BI, Excel (PivotTables, Power Query)</li>
+            <li><strong>Cloud / Platforms:</strong> AWS Cloud Practitioner, basic Snowflake/Redshift</li>
+            <li><strong>Collaboration:</strong> Git/GitHub, Jira, Slack</li>
+          </ul>
         </div>
 
-        <div class="block col-6 reveal">
-          <h3>Soft Skills</h3>
-          <p>
-            Analytical Thinking • Problem-Solving • Communication • Team Collaboration • Attention to Detail
-          </p>
-          <div class="chips" style="margin-top:12px;">
-            <span class="chip">Clear storytelling</span>
-            <span class="chip">Stakeholder-friendly insights</span>
-            <span class="chip">Structured thinking</span>
+        <div class="skillCard reveal">
+          <h3>Strengths</h3>
+          <div class="chips">
+            <span class="chip2">Analytical Thinking</span>
+            <span class="chip2">Problem-Solving</span>
+            <span class="chip2">Communication</span>
+            <span class="chip2">Team Collaboration</span>
+            <span class="chip2">Attention to Detail</span>
+            <span class="chip2">Storytelling with Data</span>
+          </div>
+
+          <div class="note">
+            <strong>Identity:</strong> I’m not “only” one title — I build across analytics and engineering.
+            I care most about impact, reliability, and clarity.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="section-head">
-        <h2 class="reveal">Experience</h2>
-        <p class="reveal">Your CV experience, formatted into a clean timeline.</p>
-      </div>
-
-      <div class="timeline">
-        <div class="role reveal">
-          <div class="top">
-            <div><b>Aspire IT Services</b> — Service Desk Engineer</div>
-            <span>Amman • Jul 2022 – Present</span>
-          </div>
-          <ul>
-            <li>Outsourced to WW International (Weight Watchers) supporting global users across core apps (Google Workspace, Okta, Workspace ONE, Adobe, SailPoint).</li>
-            <li>Collected and analyzed IT support data (Zoom Admin + Slack) and built monthly Excel dashboards to optimize staffing and streamline support processes.</li>
-            <li>Daily coordination lead: monitored request flow, prioritized tickets, and ensured cross-shift communication across international teams.</li>
-            <li>Created onboarding manuals + demo videos, reducing onboarding time by 40%.</li>
-            <li>Managed AD accounts/permissions and optimized workflows with Jira to improve resolution time and team efficiency.</li>
-          </ul>
-        </div>
-
-        <div class="role reveal">
-          <div class="top">
-            <div><b>Correlation One</b> — Advanced Data Analytics Fellow</div>
-            <span>Remote • Oct 2024 – Mar 2025</span>
-          </div>
-          <ul>
-            <li>Honors Graduate (Top 28%) from 15,000+ applicants; completed 240+ hours of applied analytics training and 30+ case studies.</li>
-            <li>Used SQL, Python, and Excel to clean, transform, and analyze diverse datasets.</li>
-            <li>Built dashboards in Tableau / Looker to support decision-making; worked end-to-end on US education & unemployment project.</li>
-          </ul>
-        </div>
-
-        <div class="role reveal">
-          <div class="top">
-            <div><b>Tahaluf Al Emarat Technical Solutions</b> — Data Science & ML Trainee</div>
-            <span>Remote • Jan 2024 – Jul 2024</span>
-          </div>
-          <ul>
-            <li>Performed data cleaning, transformation, and EDA; trained and evaluated ML models using Python and scikit-learn.</li>
-            <li>Communicated insights to technical and non-technical teams; coordinated tasks using Jira & Slack.</li>
-            <li>Led a team to 1st place in a COVID-19 vaccine degradation ML challenge.</li>
-          </ul>
-        </div>
-
-        <div class="role reveal">
-          <div class="top">
-            <div><b>SHAI for AI</b> — Data Science Intern</div>
-            <span>Remote • May 2023 – Aug 2023</span>
-          </div>
-          <ul>
-            <li>Analyzed and visualized datasets with Python libraries; practiced EDA + introductory ML/deep learning.</li>
-            <li>Ranked Top 11% globally in Kaggle Titanic challenge (78.7% accuracy).</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT / EDUCATION -->
-    <section id="about">
-      <div class="section-head">
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="sectionHead">
         <h2 class="reveal">About</h2>
-        <p class="reveal">A clear objective statement + education + certifications + languages.</p>
+        <p class="muted reveal">Your CV content, but turned into a crisp narrative.</p>
       </div>
 
-      <div class="grid">
-        <div class="block col-8 reveal">
+      <div class="aboutGrid">
+        <div class="aboutCard reveal">
           <h3>Objective</h3>
           <p>
-            Detail-oriented Data Analyst with hands-on experience in SQL, Python, Excel, and data visualization tools such as Tableau and Power BI.
+            Detail-oriented data professional with hands-on experience in <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong>,
+            and data visualization tools such as <strong>Tableau</strong> and <strong>Power BI</strong>.
             Skilled in exploratory data analysis, building data models, and delivering actionable insights to support data-driven decisions.
             Eager to apply analytical thinking and technical expertise to solve real-world business challenges and contribute to strategic goals.
           </p>
         </div>
 
-        <div class="block col-4 reveal">
-          <h3>Education</h3>
-          <p>
-            <b>Jordan University of Science and Technology</b><br/>
-            B.Sc. Computer Engineering (2017–2022)<br/>
-            GPA: 3.17/4.0 — Dean’s List (Fall 2017)<br/>
-            Graduation Project: Smart Attendance System (OpenCV, Dlib, FaceRecognition)
-          </p>
-        </div>
+        <div class="aboutCard reveal">
+          <h3>Experience Snapshot</h3>
+          <div class="timeline">
+            <div class="tItem">
+              <div class="tRole">Service Desk Engineer <span class="muted">— Aspire IT Services</span></div>
+              <div class="tMeta">Amman • Jul 2022 – Present</div>
+              <ul class="list small">
+                <li>Supported global users across Google Workspace, Okta, Workspace ONE, Adobe, SailPoint.</li>
+                <li>Built monthly Excel dashboards from Zoom Admin + Slack support data to optimize staffing.</li>
+                <li>Reduced onboarding time by ~40% via manuals + demo videos.</li>
+                <li>Improved workflows using Jira; strengthened cross-shift communication.</li>
+              </ul>
+            </div>
 
-        <div class="block col-6 reveal">
-          <h3>Licenses & Certifications</h3>
-          <p>
-            <b>AWS Cloud Practitioner</b> — Mar 2023 (Credential ID: MLCBBXNCVMF1QY9R)<br/>
-            <b>AWS Data Engineer Associate</b> — In Progress<br/>
-            <b>Future Leaders Assembly Morocco (FLAM 2025)</b> — Aug 2025 (Participation)
-          </p>
-        </div>
+            <div class="tItem">
+              <div class="tRole">Advanced Data Analytics Fellow <span class="muted">— Correlation One</span></div>
+              <div class="tMeta">Remote • Oct 2024 – Mar 2025</div>
+              <ul class="list small">
+                <li>240+ hours of applied analytics + 30+ case studies; Honors Graduate (Top 28%).</li>
+                <li>SQL/Python/Excel for cleaning and analysis; dashboards in Tableau/Looker.</li>
+              </ul>
+            </div>
 
-        <div class="block col-6 reveal">
-          <h3>Languages</h3>
-          <p>
-            Arabic — Native<br/>
-            English — Professional working proficiency<br/>
-            Turkish — Elementary
-          </p>
+            <div class="tItem">
+              <div class="tRole">Data Science & ML Trainee <span class="muted">— Tahaluf Al Emarat</span></div>
+              <div class="tMeta">Remote • Jan 2024 – Jul 2024</div>
+              <ul class="list small">
+                <li>EDA, model training/evaluation, insights for diverse datasets.</li>
+                <li>Led a team to 1st place in an ML challenge.</li>
+              </ul>
+            </div>
+
+            <div class="tItem">
+              <div class="tRole">Data Science Intern <span class="muted">— SHAI for AI</span></div>
+              <div class="tMeta">Remote • May 2023 – Aug 2023</div>
+              <ul class="list small">
+                <li>EDA + ML basics; ranked Top 11% in Kaggle Titanic.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <div class="block contact reveal">
-        <div class="left">
+    <section id="contact" class="section">
+      <div class="sectionHead">
+        <h2 class="reveal">Contact</h2>
+        <p class="muted reveal">Fast ways to reach me + all platforms linked.</p>
+      </div>
+
+      <div class="contactCard reveal">
+        <div class="contactLeft">
           <h3>Let’s connect</h3>
-          <p>Want to collaborate, chat about data, or review a project? I’m one message away.</p>
+          <p class="muted">
+            Want to collaborate or discuss a role? I reply quickly on LinkedIn.
+          </p>
+
+          <div class="contactLinks">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
+          </div>
+
+          <div class="copyRow">
+            <button class="copyBtn" data-copy="asma.m.hattab@gmail.com">Copy Email</button>
+            <span class="copyHint" id="copyHint" aria-live="polite"></span>
+          </div>
         </div>
-        <div class="right" style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="mailto:asma.hattab@gmail.com">Email me</a>
-          <a class="btn" href="https://www.linkedin.com/in/asma-hattab/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/asma-h99" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.kaggle.com/asmahattab" target="_blank" rel="noreferrer">Kaggle</a>
+
+        <div class="contactRight">
+          <div class="miniBox">
+            <div class="miniLabel">Email</div>
+            <div class="miniValue mono">asma.m.hattab@gmail.com</div>
+          </div>
+          <div class="miniBox">
+            <div class="miniLabel">Based in</div>
+            <div class="miniValue">Amman, Jordan</div>
+          </div>
+          <div class="miniBox">
+            <div class="miniLabel">Open to</div>
+            <div class="miniValue">Analytics • Data Engineering</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer>
-      © <span id="year"></span> Asma Hattab • Built with GitHub Pages
+    <footer class="foot">
+      <span>© <span id="year"></span> Asma Hattab</span>
+      <span class="muted small">Built with GitHub Pages</span>
     </footer>
   </main>
 
-  <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener("click", (e)=>{
-        const id = a.getAttribute("href");
-        if(!id || id === "#") return;
-        const el = document.querySelector(id);
-        if(!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:"smooth", block:"start"});
-      });
-    });
-
-    // reveal on scroll
-    const els = Array.from(document.querySelectorAll(".reveal"));
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(el=>io.observe(el));
-  </script>
+  <script src="./script.js"></script>
 </body>
 </html>
