@@ -1,360 +1,430 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Asma Hattab — Data / Analytics / Engineering</title>
-
-  <!-- Social preview -->
-  <meta name="description" content="Asma Hattab — Data Analyst / Data Engineer (Exploring). Building dashboards, EDA, models, pipelines, and automation." />
-
-  <!-- Fonts -->
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asma Hattab | Data • Analytics • Engineering</title>
+  <meta name="description" content="Asma Hattab — Data Analytics & Data Engineering portfolio. Projects, skills, and ways to connect." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <!-- Ambient background -->
+  <!-- Background -->
   <div class="bg">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-    <div class="noise"></div>
+    <div class="grid"></div>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
   </div>
 
-  <!-- Top nav -->
-  <header class="top">
-    <nav class="nav">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Asma Hattab</span>
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="Go to home">
+        <span class="brand__dot"></span>
+        <span class="brand__text">Asma Hattab</span>
       </a>
 
-      <button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <nav class="nav" id="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-
-      <div class="links" id="navLinks">
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="pill">Contact</a>
-      </div>
-    </nav>
+    </div>
   </header>
 
-  <main id="top" class="wrap">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="heroLeft">
-        <div class="chip reveal">
-          <span class="liveDot"></span>
-          <span id="roleText">Data • Analytics • Engineering</span>
-        </div>
-
-        <h1 class="title reveal">
-          Turning messy data into
-          <span class="grad">clear decisions</span>
-          and
-          <span class="grad2">useful products</span>.
-        </h1>
-
-        <p class="subtitle reveal">
-          I’m Asma — building with <strong>Python</strong>, <strong>SQL</strong>, and <strong>BI</strong>.
-          I enjoy clean dashboards, practical models, and pipelines that help teams move faster.
-          <span class="hint">Currently exploring: <strong>Data Analyst</strong> & <strong>Data Engineer</strong> paths.</span>
-        </p>
-
-        <div class="ctaRow reveal">
-          <a class="btn primary" href="#work">Explore my work</a>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
-        </div>
-
-        <div class="miniCards reveal">
-          <div class="mini">
-            <div class="miniLabel">Focus</div>
-            <div class="miniValue">Analytics + Engineering</div>
-          </div>
-          <div class="mini">
-            <div class="miniLabel">Tooling</div>
-            <div class="miniValue">Python • SQL • BI</div>
-          </div>
-          <div class="mini">
-            <div class="miniLabel">Location</div>
-            <div class="miniValue">Amman, Jordan</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="heroRight reveal">
-        <div class="panel">
-          <div class="panelTop">
-            <span class="winDot"></span><span class="winDot"></span><span class="winDot"></span>
-            <span class="panelTitle">Live Snapshot</span>
+  <!-- Main -->
+  <main>
+    <!-- Hero -->
+    <section class="hero section" id="home">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="badge">
+            <span class="badge__ping"></span>
+            <span>Open to Data Roles • Analytics / Engineering</span>
           </div>
 
-          <div class="panelGrid">
-            <div class="card floating">
-              <h3>What I care about</h3>
-              <p>Clarity • Simplicity • Storytelling</p>
-            </div>
+          <h1 class="hero__title">
+            Turning data into <span class="accent">decisions</span> — and pipelines into <span class="accent">products</span>.
+          </h1>
 
-            <div class="card">
-              <h3>Data / ML Portfolio</h3>
-              <p>Real-world impact projects</p>
-
-              <div class="pillRow">
-                <a class="pillLink" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
-                <a class="pillLink" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
-                <a class="pillLink" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
-                <a class="pillLink" target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
-              </div>
-            </div>
-
-            <div class="card quote">
-              <div class="quoteMark">“</div>
-              <p>
-                Try to learn something about everything, and everything about something.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>What I build</h3>
-              <p>Dashboards • EDA • Models • Pipelines</p>
-              <div class="tags">
-                <span class="tag">Tableau</span>
-                <span class="tag">Power BI</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Python</span>
-                <span class="tag">A/B Testing</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="statusBar reveal">
-          <span class="status">
-            <span class="statusDot"></span>
-            Open to opportunities
-          </span>
-          <span class="status small">Data Analyst • Data Engineer (Exploring)</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work" class="section">
-      <div class="sectionHead">
-        <h2 class="reveal">Selected Work</h2>
-        <p class="muted reveal">
-          Replace placeholders with your real projects (Tableau links, GitHub repos, Kaggle notebooks).
-        </p>
-      </div>
-
-      <div class="grid3">
-        <article class="workCard reveal">
-          <div class="workTop">
-            <span class="badge">Analytics</span>
-            <span class="muted small">Tableau / EDA</span>
-          </div>
-          <h3>Education vs Unemployment (US Counties)</h3>
-          <p>
-            End-to-end analysis: cleaning, insights, and visualization. Built a dashboard to highlight patterns across counties.
+          <p class="hero__subtitle">
+            Detail-oriented professional with hands-on experience in <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong>, and
+            BI tools like <strong>Tableau</strong> & <strong>Power BI</strong>. I enjoy exploratory analysis, building reliable data workflows,
+            and delivering insights that support real business impact.
           </p>
-          <div class="workLinks">
-            <a target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">View Dashboard</a>
-            <a target="_blank" rel="noopener" href="https://github.com/asma-h99">Repo</a>
-          </div>
-        </article>
 
-        <article class="workCard reveal">
-          <div class="workTop">
-            <span class="badge">Data</span>
-            <span class="muted small">SQL / Excel</span>
-          </div>
-          <h3>Support Ops Insights (Service Desk)</h3>
-          <p>
-            Analyzed support activity trends, peak hours, recurring issues, and workload distribution; produced monthly dashboards.
-          </p>
-          <div class="workLinks">
-            <a href="#about">Case Summary</a>
-            <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
-          </div>
-        </article>
-
-        <article class="workCard reveal">
-          <div class="workTop">
-            <span class="badge">ML</span>
-            <span class="muted small">Scikit-learn</span>
-          </div>
-          <h3>ML Challenge — 1st Place (Team)</h3>
-          <p>
-            Built and evaluated models, communicated results, and shipped clear insights for technical + non-technical audiences.
-          </p>
-          <div class="workLinks">
-            <a target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
-            <a target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <div class="sectionHead">
-        <h2 class="reveal">Skills</h2>
-        <p class="muted reveal">A clean, readable version of your CV skills — with better hierarchy.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="skillCard reveal">
-          <h3>Technical</h3>
-          <ul class="list">
-            <li><strong>Programming & Databases:</strong> Python (Pandas, NumPy, Matplotlib), SQL (MySQL, PostgreSQL)</li>
-            <li><strong>Analysis:</strong> Statistics, Probability, EDA, Data Cleaning, Feature Engineering, A/B Testing</li>
-            <li><strong>Machine Learning (Basics):</strong> Regression, Classification, Scikit-learn</li>
-            <li><strong>Visualization & BI:</strong> Tableau, Power BI, Excel (PivotTables, Power Query)</li>
-            <li><strong>Cloud / Platforms:</strong> AWS Cloud Practitioner, basic Snowflake/Redshift</li>
-            <li><strong>Collaboration:</strong> Git/GitHub, Jira, Slack</li>
-          </ul>
-        </div>
-
-        <div class="skillCard reveal">
-          <h3>Strengths</h3>
-          <div class="chips">
-            <span class="chip2">Analytical Thinking</span>
-            <span class="chip2">Problem-Solving</span>
-            <span class="chip2">Communication</span>
-            <span class="chip2">Team Collaboration</span>
-            <span class="chip2">Attention to Detail</span>
-            <span class="chip2">Storytelling with Data</span>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#contact">
+              <span class="btn__icon" aria-hidden="true">✦</span>
+              Contact Me
+            </a>
+            <a class="btn btn--ghost" href="#highlights">
+              See Highlights
+            </a>
           </div>
 
-          <div class="note">
-            <strong>Identity:</strong> I’m not “only” one title — I build across analytics and engineering.
-            I care most about impact, reliability, and clarity.
+          <div class="quick-links">
+            <a class="chip" href="https://www.linkedin.com/in/asma-hattab/" target="_blank" rel="noreferrer">
+              <span class="chip__icon" aria-hidden="true">
+                <!-- LinkedIn icon -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M6.5 9.5V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M6.5 6.5H6.51" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M10.5 18.5V13.2C10.5 11.3 11.7 10.5 13 10.5C14.3 10.5 15.5 11.3 15.5 13.2V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M15.5 13.2C15.5 11.3 16.7 10.5 18 10.5C19.3 10.5 20.5 11.3 20.5 13.2V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M10.5 9.5V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              LinkedIn
+            </a>
+
+            <a class="chip" href="https://github.com/asma-h99" target="_blank" rel="noreferrer">
+              <span class="chip__icon" aria-hidden="true">
+                <!-- GitHub icon -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M9 19c-3.5 1-3.5-2-5-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M15 19v-3c0-.9.3-1.6.8-2-2.7-.3-5.6-1.3-5.6-6a4.6 4.6 0 0 1 1.2-3.2A4.2 4.2 0 0 1 12 2.5a4.2 4.2 0 0 1 1.4.3 4.6 4.6 0 0 1 1.2 3.2c0 4.7-2.9 5.7-5.6 6 .5.4.8 1.2.8 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              GitHub
+            </a>
+
+            <a class="chip" href="https://www.kaggle.com/asmahattab" target="_blank" rel="noreferrer">
+              <span class="chip__icon" aria-hidden="true">
+                <!-- Kaggle (simple K) -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M8 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M16 4l-7 8 7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Kaggle
+            </a>
+
+            <a class="chip" href="https://public.tableau.com/app/profile/asma.hattab/vizzes" target="_blank" rel="noreferrer">
+              <span class="chip__icon" aria-hidden="true">
+                <!-- Tableau (dots) -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path d="M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Tableau
+            </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="sectionHead">
-        <h2 class="reveal">About</h2>
-        <p class="muted reveal">Your CV content, but turned into a crisp narrative.</p>
-      </div>
-
-      <div class="aboutGrid">
-        <div class="aboutCard reveal">
-          <h3>Objective</h3>
-          <p>
-            Detail-oriented data professional with hands-on experience in <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong>,
-            and data visualization tools such as <strong>Tableau</strong> and <strong>Power BI</strong>.
-            Skilled in exploratory data analysis, building data models, and delivering actionable insights to support data-driven decisions.
-            Eager to apply analytical thinking and technical expertise to solve real-world business challenges and contribute to strategic goals.
-          </p>
-        </div>
-
-        <div class="aboutCard reveal">
-          <h3>Experience Snapshot</h3>
-          <div class="timeline">
-            <div class="tItem">
-              <div class="tRole">Service Desk Engineer <span class="muted">— Aspire IT Services</span></div>
-              <div class="tMeta">Amman • Jul 2022 – Present</div>
-              <ul class="list small">
-                <li>Supported global users across Google Workspace, Okta, Workspace ONE, Adobe, SailPoint.</li>
-                <li>Built monthly Excel dashboards from Zoom Admin + Slack support data to optimize staffing.</li>
-                <li>Reduced onboarding time by ~40% via manuals + demo videos.</li>
-                <li>Improved workflows using Jira; strengthened cross-shift communication.</li>
-              </ul>
-            </div>
-
-            <div class="tItem">
-              <div class="tRole">Advanced Data Analytics Fellow <span class="muted">— Correlation One</span></div>
-              <div class="tMeta">Remote • Oct 2024 – Mar 2025</div>
-              <ul class="list small">
-                <li>240+ hours of applied analytics + 30+ case studies; Honors Graduate (Top 28%).</li>
-                <li>SQL/Python/Excel for cleaning and analysis; dashboards in Tableau/Looker.</li>
-              </ul>
-            </div>
-
-            <div class="tItem">
-              <div class="tRole">Data Science & ML Trainee <span class="muted">— Tahaluf Al Emarat</span></div>
-              <div class="tMeta">Remote • Jan 2024 – Jul 2024</div>
-              <ul class="list small">
-                <li>EDA, model training/evaluation, insights for diverse datasets.</li>
-                <li>Led a team to 1st place in an ML challenge.</li>
-              </ul>
-            </div>
-
-            <div class="tItem">
-              <div class="tRole">Data Science Intern <span class="muted">— SHAI for AI</span></div>
-              <div class="tMeta">Remote • May 2023 – Aug 2023</div>
-              <ul class="list small">
-                <li>EDA + ML basics; ranked Top 11% in Kaggle Titanic.</li>
-              </ul>
-            </div>
+        <div class="hero__card">
+          <div class="stat">
+            <div class="stat__label">Email</div>
+            <div class="stat__value mono">asma.m.hattab@gmail.com</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="sectionHead">
-        <h2 class="reveal">Contact</h2>
-        <p class="muted reveal">Fast ways to reach me + all platforms linked.</p>
-      </div>
-
-      <div class="contactCard reveal">
-        <div class="contactLeft">
-          <h3>Let’s connect</h3>
+          <div class="stat">
+            <div class="stat__label">Focus</div>
+            <div class="stat__value">Analytics • BI • Data Pipelines</div>
+          </div>
+          <div class="stat">
+            <div class="stat__label">Tools</div>
+            <div class="stat__value">SQL • Python • Tableau • Power BI</div>
+          </div>
+          <div class="divider"></div>
           <p class="muted">
-            Want to collaborate or discuss a role? I reply quickly on LinkedIn.
+            Tech-inspired minimal look, smooth motion, and clean typography — made for a strong first impression.
           </p>
+        </div>
+      </div>
+    </section>
 
-          <div class="contactLinks">
-            <a class="btn primary" target="_blank" rel="noopener" href="https://www.linkedin.com/in/asma-hattab/">LinkedIn</a>
-            <a class="btn ghost" target="_blank" rel="noopener" href="https://github.com/asma-h99">GitHub</a>
-            <a class="btn ghost" target="_blank" rel="noopener" href="https://www.kaggle.com/asmahattab">Kaggle</a>
-            <a class="btn ghost" target="_blank" rel="noopener" href="https://public.tableau.com/app/profile/asma.hattab/vizzes">Tableau</a>
-          </div>
-
-          <div class="copyRow">
-            <button class="copyBtn" data-copy="asma.m.hattab@gmail.com">Copy Email</button>
-            <span class="copyHint" id="copyHint" aria-live="polite"></span>
-          </div>
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2>About</h2>
+          <p class="muted">A short story — and where I’m heading next.</p>
         </div>
 
-        <div class="contactRight">
-          <div class="miniBox">
-            <div class="miniLabel">Email</div>
-            <div class="miniValue mono">asma.m.hattab@gmail.com</div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Objective</h3>
+            <p>
+              I’m a detail-oriented data professional with hands-on experience in <strong>SQL</strong>, <strong>Python</strong>, <strong>Excel</strong>,
+              and BI tools like <strong>Tableau</strong> and <strong>Power BI</strong>.
+              I build clear analyses, reliable dashboards, and (increasingly) data workflows that help teams move faster.
+              I’m exploring roles across <strong>Data Analytics</strong> and <strong>Data Engineering</strong> — where I can combine analytical thinking,
+              pipeline-building, and storytelling to deliver measurable business value.
+            </p>
           </div>
-          <div class="miniBox">
-            <div class="miniLabel">Based in</div>
-            <div class="miniValue">Amman, Jordan</div>
-          </div>
-          <div class="miniBox">
-            <div class="miniLabel">Open to</div>
-            <div class="miniValue">Analytics • Data Engineering</div>
+
+          <div class="card">
+            <h3>What I bring</h3>
+            <ul class="bullets">
+              <li><strong>Insight to action:</strong> EDA, data modeling, KPI design, and decision-ready reporting.</li>
+              <li><strong>Systems mindset:</strong> organizing data flows, automating tasks, and improving reliability.</li>
+              <li><strong>Communication:</strong> translating data to clear narratives for technical & non-technical audiences.</li>
+              <li><strong>Ownership:</strong> coordination, documentation, and continuous improvement.</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="foot">
-      <span>© <span id="year"></span> Asma Hattab</span>
-      <span class="muted small">Built with GitHub Pages</span>
-    </footer>
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <h2>Skills</h2>
+          <p class="muted">A balanced stack for analytics today — and engineering tomorrow.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card card--hover">
+            <h3>Programming & Databases</h3>
+            <p class="muted">Python (Pandas, NumPy, Matplotlib), SQL (MySQL, PostgreSQL).</p>
+          </div>
+
+          <div class="card card--hover">
+            <h3>Analytics</h3>
+            <p class="muted">EDA, Data Cleaning, Feature Engineering, A/B Testing, Statistics & Probability.</p>
+          </div>
+
+          <div class="card card--hover">
+            <h3>BI & Visualization</h3>
+            <p class="muted">Power BI, Tableau, Excel (PivotTables, Power Query).</p>
+          </div>
+
+          <div class="card card--hover">
+            <h3>Cloud & Platforms</h3>
+            <p class="muted">AWS Cloud Practitioner • Snowflake/Redshift (basic).</p>
+          </div>
+
+          <div class="card card--hover">
+            <h3>Collaboration</h3>
+            <p class="muted">Git/GitHub, Jira, Slack — documentation & cross-team coordination.</p>
+          </div>
+
+          <div class="card card--hover">
+            <h3>Soft Skills</h3>
+            <p class="muted">Analytical thinking, problem solving, communication, attention to detail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section" id="highlights">
+      <div class="container">
+        <div class="section__head">
+          <h2>Highlights</h2>
+          <p class="muted">Conferences, hackathons, and standout moments.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="card t-card">
+              <h3>Future Leaders Assembly Morocco (FLAM 2025)</h3>
+              <p class="muted">International youth conference on leadership, sustainability, and innovation.</p>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="card t-card">
+              <h3>“Train of Knowledge” International Reading Initiative</h3>
+              <p class="muted">Winner / recognition (add the exact title/award wording you prefer).</p>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="card t-card">
+              <h3>DataDrip Hackathon (Qafza) — Power BI</h3>
+              <p class="muted">Built dashboards and insights under time pressure.</p>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="card t-card">
+              <h3>Salam Hack — “Huroufi” (Generative AI)</h3>
+              <p class="muted">Worked on an Arabic GenAI educational experience (text/image/audio concept).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <h2>Contact</h2>
+          <p class="muted">Let’s connect — choose your preferred platform.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Send me an email</h3>
+            <p class="muted">
+              Email: <span class="mono">asma.m.hattab@gmail.com</span>
+            </p>
+
+            <div class="actions">
+              <button class="btn btn--primary" id="emailBtn" type="button">
+                <span class="btn__icon" aria-hidden="true">
+                  <!-- mail icon -->
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M4 7.5v9A2.5 2.5 0 0 0 6.5 19h11A2.5 2.5 0 0 0 20 16.5v-9A2.5 2.5 0 0 0 17.5 5h-11A2.5 2.5 0 0 0 4 7.5Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="m5.5 7 6.5 5 6.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Email options
+              </button>
+
+              <a class="btn btn--ghost" href="mailto:asma.m.hattab@gmail.com?subject=Hello%20Asma&body=Hi%20Asma%2C%0A%0A" id="mailtoLink">
+                Open default mail app
+              </a>
+            </div>
+
+            <p class="tiny muted">
+              Note: Browsers can’t force a system chooser reliably. The popup below provides direct Gmail/Outlook links + default mailto.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Find me online</h3>
+
+            <div class="contact-list">
+              <a class="contact-item" href="https://www.linkedin.com/in/asma-hattab/" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <!-- LinkedIn -->
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M6.5 9.5V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M6.5 6.5H6.51" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M10.5 18.5V13.2C10.5 11.3 11.7 10.5 13 10.5C14.3 10.5 15.5 11.3 15.5 13.2V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M10.5 9.5V18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>
+                  <strong>LinkedIn</strong>
+                  <span class="muted small">/in/asma-hattab</span>
+                </span>
+              </a>
+
+              <a class="contact-item" href="https://github.com/asma-h99" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <!-- GitHub -->
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M9 19c-3.5 1-3.5-2-5-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 19v-3c0-.9.3-1.6.8-2-2.7-.3-5.6-1.3-5.6-6a4.6 4.6 0 0 1 1.2-3.2A4.2 4.2 0 0 1 12 2.5a4.2 4.2 0 0 1 1.4.3 4.6 4.6 0 0 1 1.2 3.2c0 4.7-2.9 5.7-5.6 6 .5.4.8 1.2.8 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>
+                  <strong>GitHub</strong>
+                  <span class="muted small">/asma-h99</span>
+                </span>
+              </a>
+
+              <a class="contact-item" href="https://www.kaggle.com/asmahattab" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <!-- Kaggle K -->
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M8 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 4l-7 8 7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>
+                  <strong>Kaggle</strong>
+                  <span class="muted small">/asmahattab</span>
+                </span>
+              </a>
+
+              <a class="contact-item" href="https://public.tableau.com/app/profile/asma.hattab/vizzes" target="_blank" rel="noreferrer">
+                <span class="icon">
+                  <!-- Tableau -->
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                    <path d="M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 12h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>
+                  <strong>Tableau Public</strong>
+                  <span class="muted small">vizzes</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <span class="muted small">© <span id="year"></span> Asma Hattab • Built with GitHub Pages</span>
+        </footer>
+      </div>
+    </section>
   </main>
 
-  <script src="./script.js"></script>
+  <!-- Back to top button -->
+  <button class="to-top" id="toTop" aria-label="Back to top" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Email Options Modal -->
+  <div class="modal" id="emailModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__panel" role="document">
+      <div class="modal__head">
+        <h3>Email options</h3>
+        <button class="icon-btn" id="closeModal" aria-label="Close">
+          ✕
+        </button>
+      </div>
+
+      <p class="muted">
+        Choose where you want to compose your message to
+        <span class="mono">asma.m.hattab@gmail.com</span>
+      </p>
+
+      <div class="modal__actions">
+        <a class="btn btn--primary" id="gmailCompose" target="_blank" rel="noreferrer">
+          Gmail
+        </a>
+        <a class="btn btn--ghost" id="outlookCompose" target="_blank" rel="noreferrer">
+          Outlook
+        </a>
+        <a class="btn btn--ghost" id="defaultCompose">
+          Default mail app
+        </a>
+      </div>
+
+      <div class="modal__small">
+        <label class="field">
+          <span>Subject</span>
+          <input id="emailSubject" type="text" value="Hello Asma" />
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea id="emailBody" rows="5">Hi Asma,
+
+</textarea>
+        </label>
+      </div>
+
+      <p class="tiny muted">
+        Tip: Some browsers may block popups if not initiated by a click — this modal is click-based, so it’s safe.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
