@@ -93,3 +93,23 @@ document.addEventListener("keydown", (e) => {
 [emailSubject, emailBody].forEach(el => {
   el?.addEventListener("input", updateEmailLinks);
 });
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav a");
+
+function onScroll() {
+  let current = "";
+  sections.forEach(sec => {
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 120;
+    const height = sec.offsetHeight;
+    if (top >= offset && top < offset + height) current = sec.id;
+  });
+
+  navLinks.forEach(a => {
+    a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+  });
+}
+window.addEventListener("scroll", onScroll);
+onScroll();
+
