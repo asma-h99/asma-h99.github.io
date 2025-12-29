@@ -417,3 +417,10 @@ textarea{ resize: vertical; min-height: 110px; }
   .grid-3{ grid-template-columns: 1fr; }
   .hero{ padding-top: 84px; }
 }
+.nav a.active{
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.96);
+  border: 1px solid rgba(255,255,255,.16);
+}
+.hero__subtitle { max-width: 62ch; }
+.card p, .bullets { color: rgba(255,255,255,.74); }
