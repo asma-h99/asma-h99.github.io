@@ -173,8 +173,7 @@ const PROJECTS = [
 const grid = document.getElementById("projectsGrid");
 const modal = document.getElementById("projectModal");
 const modalBody = document.getElementById("modalBody");
-const filterChips = Array.from(document.querySelectorAll(".chip"));
-
+const filterChips = Array.from(document.querySelectorAll("#projects .filters .chip"));
 function safeLink(url) {
   return url && url.trim().length > 0;
 }
@@ -256,9 +255,10 @@ function wireDetailsButtons() {
   });
 }
 
-modal.addEventListener("click", (e) => {
+modal?.addEventListener("click", (e) => {
   if (e.target.matches("[data-close]")) closeModal();
 });
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
 });
