@@ -258,38 +258,33 @@ I’m intentionally growing from analytics into more engineering-oriented work, 
 
       </div>
     </section>
-<!-- Projects -->
-<section class="section" id="projects">
-  <div class="container">
-    <div class="section__head">
-      <h2>Projects</h2>
-      <p class="muted">A few things I’ve built — focused on outcomes, not just tools.</p>
-    </div>
-
-    <div class="grid-3">
-      <article class="card card--hover project">
-        <div class="project__top">
-          <h3>Impact of Education on Unemployment (US Counties)</h3>
-          <span class="project__tag">EDA • Modeling</span>
-        </div>
-        <p class="muted">
-          Built a county-level analysis to quantify how education relates to unemployment.
-        </p>
-        <ul class="bullets">
-          <li>Defined metrics + cleaned multi-source datasets</li>
-          <li>Explained drivers with interpretable models</li>
-          <li>Delivered a decision-ready summary + visuals</li>
-        </ul>
-        <div class="project__links">
-          <a class="btn btn--ghost" href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer">Code</a>
-          <a class="btn btn--primary" href="YOUR_REPORT_LINK" target="_blank" rel="noreferrer">Read</a>
-        </div>
-      </article>
-
-      <!-- Copy 2–5 more project cards -->
-    </div>
+<section id="projects" class="section">
+  <div class="section-head">
+    <h2>Projects</h2>
+    <p class="muted">Selected work — impact-first, with clean delivery.</p>
   </div>
+
+  <!-- Filters -->
+  <div class="filters" role="tablist" aria-label="Project filters">
+    <button class="chip active" data-filter="all" role="tab">All</button>
+    <button class="chip" data-filter="analytics" role="tab">Analytics</button>
+    <button class="chip" data-filter="bi" role="tab">Power BI / Tableau</button>
+    <button class="chip" data-filter="ml" role="tab">ML</button>
+    <button class="chip" data-filter="genai" role="tab">GenAI</button>
+  </div>
+
+  <!-- Cards grid (JS will render here) -->
+  <div id="projectsGrid" class="projects-grid"></div>
 </section>
+
+<!-- Modal -->
+<div id="projectModal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Project details">
+    <button class="modal-close" data-close aria-label="Close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
 
     <!-- Highlights -->
     <section class="section" id="highlights">
