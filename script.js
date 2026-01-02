@@ -113,23 +113,26 @@ function onScroll() {
 
 /* ========= Projects data (Edit this only) ========= */
 const PROJECTS = [
-  {
-    title: "Impact of Education on Unemployment (US Counties)",
-    category: ["analytics", "ml"],
-    badge: "EDA • Modeling",
-    desc: "County-level analysis quantifying how education relates to unemployment using interpretable modeling + clear storytelling.",
-    tags: ["Python", "Pandas", "SQL", "EDA", "Modeling"],
-    links: {
-      code: "PUT_GITHUB_REPO_LINK_HERE",
-      read: "PUT_README_OR_BLOG_LINK_HERE",
-      demo: "" // optional
-    },
-    highlights: [
-      "Defined metrics + cleaned multi-source datasets.",
-      "Explained key drivers with interpretable models.",
-      "Delivered decision-ready summary + visuals."
-    ]
+{
+  title: "Education & Unemployment in the U.S. States",
+  category: ["analytics", "bi"],
+  badge: "Featured • Tableau",
+  desc: "An analytical project exploring how education levels influence unemployment rates across U.S. counties from 2015 to 2020, highlighting regional disparities and the impact of COVID-19.",
+  tags: ["Tableau", "Data Analysis", "Education", "Public Policy"],
+  links: {
+    demo: "https://public.tableau.com/app/profile/asma.hattab/viz/EducationUnemploymentinU_S_/Main",
+    read: "",
+    code: ""
   },
+  highlights: [
+    "Higher education levels are consistently associated with lower unemployment rates.",
+    "A strong negative correlation (−0.62) between bachelor’s degree attainment and unemployment.",
+    "Rural areas experienced nearly double the unemployment of urban regions.",
+    "COVID-19 sharply increased unemployment in tourism-dependent states."
+  ],
+  featured: true
+},
+
   {
     title: "Huroufi (Arabic GenAI Learning Prototype)",
     category: ["genai"],
