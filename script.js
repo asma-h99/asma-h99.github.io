@@ -115,23 +115,23 @@ function onScroll() {
 const PROJECTS = [
 {
   title: "Education & Unemployment in the U.S. States",
-  category: ["analytics", "powerbi", "tableau"],
+  category: ["analytics", "bi"],
   badge: "Featured • Tableau",
-  desc: "An analytical project exploring how education levels influence unemployment rates across U.S. counties from 2015 to 2020, highlighting regional disparities and the impact of COVID-19.",
-  tags: ["Tableau", "Data Analysis", "Education", "Public Policy"],
+  desc: "Explored how education levels relate to unemployment across U.S. counties (2015–2020), highlighting regional disparities and COVID-19 impact.",
+  tags: ["Tableau", "Python", "EDA", "Public Policy"],
   links: {
     demo: "https://public.tableau.com/app/profile/asma.hattab/viz/EducationUnemploymentinU_S_/Main",
-    read: "",
-    code: ""
+    read: "assets/education-report.pdf",
+    code: "https://colab.research.google.com/drive/1c5iG-JRftGAzVC01j5zXOfVyiOgFxDNo"
   },
   highlights: [
-    "Higher education levels are consistently associated with lower unemployment rates.",
-    "A strong negative correlation (−0.62) between bachelor’s degree attainment and unemployment.",
-    "Rural areas experienced nearly double the unemployment of urban regions.",
-    "COVID-19 sharply increased unemployment in tourism-dependent states."
+    "Found a strong negative correlation (−0.62) between bachelor’s attainment and unemployment.",
+    "Rural areas showed ~2× higher unemployment vs. urban regions across 2015–2020.",
+    "COVID-19 drove sharp spikes in tourism-dependent states (e.g., Nevada, Hawaii)."
   ],
   featured: true
 },
+
 
   {
     title: "Huroufi (Arabic GenAI Learning Prototype)",
