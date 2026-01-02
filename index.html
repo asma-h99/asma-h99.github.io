@@ -259,16 +259,24 @@ I’m intentionally growing from analytics into more engineering-oriented work, 
       </div>
     </section>
 <section id="projects" class="section">
-  <div class="section-head">
-    <h2>Projects</h2>
-    <p class="muted">Selected work — impact-first, with clean delivery.</p>
-  </div>
+  <div class="container">
+    <div class="section__head">
+      <h2>Projects</h2>
+      <p class="muted">Selected work — impact-first, with clean delivery.</p>
+    </div>
 
-  <div class="filters" role="tablist" aria-label="Project filters">
-    ...
-  </div>
+    <!-- Filters -->
+    <div class="filters" role="tablist" aria-label="Project filters">
+      <button class="chip active" data-filter="all" role="tab">All</button>
+      <button class="chip" data-filter="analytics" role="tab">Analytics</button>
+      <button class="chip" data-filter="bi" role="tab">Power BI / Tableau</button>
+      <button class="chip" data-filter="ml" role="tab">ML</button>
+      <button class="chip" data-filter="genai" role="tab">GenAI</button>
+    </div>
 
-  <div id="projectsGrid" class="projects-grid"></div>
+    <!-- Cards grid (JS will render here) -->
+    <div id="projectsGrid" class="projects-grid"></div>
+  </div>
 </section>
 
 
