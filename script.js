@@ -110,6 +110,193 @@ function onScroll() {
     a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
   });
 }
+
+/* ========= Projects data (Edit this only) ========= */
+const PROJECTS = [
+  {
+    title: "Impact of Education on Unemployment (US Counties)",
+    category: ["analytics", "ml"],
+    badge: "EDA • Modeling",
+    desc: "County-level analysis quantifying how education relates to unemployment using interpretable modeling + clear storytelling.",
+    tags: ["Python", "Pandas", "SQL", "EDA", "Modeling"],
+    links: {
+      code: "PUT_GITHUB_REPO_LINK_HERE",
+      read: "PUT_README_OR_BLOG_LINK_HERE",
+      demo: "" // optional
+    },
+    highlights: [
+      "Defined metrics + cleaned multi-source datasets.",
+      "Explained key drivers with interpretable models.",
+      "Delivered decision-ready summary + visuals."
+    ]
+  },
+  {
+    title: "Huroufi (Arabic GenAI Learning Prototype)",
+    category: ["genai"],
+    badge: "GenAI • Edu",
+    desc: "Arabic educational experience concept: generates text, images, and audio to teach children in a fun interactive flow.",
+    tags: ["OpenAI", "Arabic", "Streamlit", "Prompting"],
+    links: {
+      code: "https://github.com/asma-h99/7urofy",
+      read: "",
+      demo: ""
+    },
+    highlights: [
+      "Designed user flow for kids (simple + safe).",
+      "Automated content generation (text → image → audio).",
+      "Focused on usability + learning outcomes."
+    ]
+  },
+  {
+    title: "DataDrip Hackathon (Qafza) — Power BI Dashboards",
+    category: ["bi", "analytics"],
+    badge: "Power BI",
+    desc: "Built dashboards and insights under time pressure — focused on KPI clarity, filters, and stakeholder-ready views.",
+    tags: ["Power BI", "DAX", "Dashboards", "KPIs"],
+    links: {
+      code: "",
+      read: "",
+      demo: "PUT_TABLEAU_OR_POWERBI_PUBLIC_LINK_HERE"
+    },
+    highlights: [
+      "KPI design + layout for fast decision-making.",
+      "Interactive filters + drilldowns.",
+      "Polished visuals with consistent story."
+    ]
+  }
+];
+
+/* ========= Render ========= */
+const grid = document.getElementById("projectsGrid");
+const modal = document.getElementById("projectModal");
+const modalBody = document.getElementById("modalBody");
+const filterChips = Array.from(document.querySelectorAll(".chip"));
+
+function safeLink(url) {
+  return url && url.trim().length > 0;
+}
+
+function cardTemplate(p, idx) {
+  const actions = [];
+
+  if (safeLink(p.links.demo)) actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>`);
+  if (safeLink(p.links.read)) actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
+  if (safeLink(p.links.code)) actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
+  actions.push(`<button class="pbtn" data-open="${idx}">Details</button>`);
+
+  return `
+    <article class="project-card" data-cats="${p.category.join(",")}">
+      <div class="project-top">
+        <div class="project-title">
+          <h3>${p.title}</h3>
+          <span class="badge">${p.badge}</span>
+        </div>
+        <p class="project-desc">${p.desc}</p>
+        <div class="tags">
+          ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+        </div>
+      </div>
+      <div class="project-actions">
+        ${actions.join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderProjects(list) {
+  grid.innerHTML = list.map(cardTemplate).join("");
+  wireProjectHoverGlow();
+  wireDetailsButtons();
+  revealOnScroll();
+}
+
+function filterProjects(cat) {
+  if (cat === "all") return PROJECTS;
+  return PROJECTS.filter(p => p.category.includes(cat));
+}
+
+/* ========= Modal ========= */
+function openModal(p) {
+  modalBody.innerHTML = `
+    <h3>${p.title}</h3>
+    <p style="opacity:.9; line-height:1.55; margin:.2rem 0 .85rem;">${p.desc}</p>
+    <div class="tags" style="margin-bottom:.85rem;">
+      ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+    </div>
+    <strong style="display:block; margin:.6rem 0 .35rem; opacity:.95;">What I delivered</strong>
+    <ul>
+      ${p.highlights.map(h => `<li>${h}</li>`).join("")}
+    </ul>
+    <div class="project-actions" style="margin-top:1rem; padding:0;">
+      ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>` : ""}
+      ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
+      ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
+    </div>
+  `;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function wireDetailsButtons() {
+  grid.querySelectorAll("[data-open]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = Number(btn.getAttribute("data-open"));
+      openModal(PROJECTS[idx]);
+    });
+  });
+}
+
+modal.addEventListener("click", (e) => {
+  if (e.target.matches("[data-close]")) closeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+});
+
+/* ========= Filters ========= */
+filterChips.forEach(chip => {
+  chip.addEventListener("click", () => {
+    filterChips.forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    const cat = chip.getAttribute("data-filter");
+    renderProjects(filterProjects(cat));
+  });
+});
+
+/* ========= Micro-interactions ========= */
+function wireProjectHoverGlow() {
+  grid.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      const mx = ((e.clientX - r.left) / r.width) * 100;
+      const my = ((e.clientY - r.top) / r.height) * 100;
+      card.style.setProperty("--mx", `${mx}%`);
+      card.style.setProperty("--my", `${my}%`);
+    });
+  });
+}
+
+/* Reveal animation on scroll */
+function revealOnScroll() {
+  const cards = grid.querySelectorAll(".project-card");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) en.target.classList.add("reveal");
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(c => io.observe(c));
+}
+
+/* Init */
+renderProjects(PROJECTS);
+
 window.addEventListener("scroll", onScroll);
 onScroll();
 
