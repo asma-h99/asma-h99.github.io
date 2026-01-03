@@ -852,4 +852,20 @@ textarea{ resize: vertical; min-height: 110px; }
 #projects .project-card:hover .project-thumb::after{
   opacity: 1;
 }
+/* Full poster inside Details modal */
+#projectModal .modal-poster{
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  margin-bottom: 1rem;
+}
+
+#projectModal .modal-poster img{
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f6f4ee;
+}
 
