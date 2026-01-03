@@ -167,7 +167,7 @@ function cardTemplate(p, idx) {
       <div class="project-top">
         <div class="project-title">
           <h3>${p.title}</h3>
-          <span class="badge">${p.badge}</span>
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
         </div>
 
         <p class="project-desc">${p.desc}</p>
