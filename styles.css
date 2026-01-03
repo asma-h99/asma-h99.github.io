@@ -741,6 +741,70 @@ textarea{ resize: vertical; min-height: 110px; }
 }
 
 /* Better alignment: force grid to respect container nicely */
+
+
+
+/* =========================
+   PROJECTS — BUTTONS + FILTERS (override)
+   Put at the VERY END of the CSS file
+========================= */
+
+/* Only inside Projects: fix typography + size consistency */
+#projects .filters .chip,
+#projects .pbtn{
+  font-family: var(--font);
+  font-weight: 750;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+/* Filters look (only in Projects) */
+#projects .filters .chip{
+  padding: 10px 12px;               /* نفس Quick-links */
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  transition: background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+#projects .filters .chip:hover{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+/* Active filter: أوضح بكثير */
+#projects .filters .chip.active{
+  background: linear-gradient(90deg, rgba(78,225,255,.18), rgba(167,139,250,.18));
+  border-color: rgba(255,255,255,.28);
+  box-shadow: 0 0 0 4px rgba(78,225,255,.10);
+}
+
+/* Dot indicator (اختياري بس حلو) */
+#projects .filters .chip.active::before{
+  content:"";
+  width:8px; height:8px;
+  border-radius:999px;
+  display:inline-block;
+  margin-right:.45rem;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(78,225,255,.45);
+}
+
+/* Action buttons: نفس الخط والشكل */
+#projects .pbtn{
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 750;
+}
+#projects .pbtn.primary{
+  background: linear-gradient(90deg, rgba(78,225,255,.18), rgba(167,139,250,.18));
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+#projects .pbtn.ghost{
+  background: rgba(255,255,255,.04);
+}
+
 #projects .projects-grid{
   width: 100%;
 }
