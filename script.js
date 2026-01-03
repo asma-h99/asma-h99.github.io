@@ -124,6 +124,7 @@ const PROJECTS = [
       read: "",
       code: ""
     },
+    image: "assets/education-unemployment-poster.png",
     highlights: [
       "Higher education levels are consistently associated with lower unemployment rates.",
       "A strong negative correlation (−0.62) between bachelor’s degree attainment and unemployment.",
