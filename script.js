@@ -198,12 +198,6 @@ function filterProjects(cat) {
 /* ========= Modal ========= */
 function openProjectModal(p) {
   modalBody.innerHTML = `
-    ${p.image ? `
-      <div class="modal-poster">
-        <img src="${p.image}" alt="${p.title} poster">
-      </div>
-    ` : ""}
-
     <h3>${p.title}</h3>
     <p style="opacity:.9; line-height:1.55; margin:.2rem 0 .85rem;">${p.desc}</p>
 
@@ -211,17 +205,35 @@ function openProjectModal(p) {
       ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
     </div>
 
-    <strong style="display:block; margin:.6rem 0 .35rem; opacity:.95;">What I delivered</strong>
-    <ul>
-      ${p.highlights.map(h => `<li>${h}</li>`).join("")}
-    </ul>
-
-    <div class="project-actions" style="margin-top:1rem; padding:0;">
+    <div class="project-actions" style="margin: .25rem 0 1rem; padding:0;">
       ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
+      ${p.image ? `<button class="pbtn" id="togglePosterBtn" type="button">View Poster</button>` : ""}
       ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
       ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
     </div>
+
+    ${p.image ? `
+      <div class="modal-poster" id="posterWrap" style="display:none;">
+        <img src="${p.image}" alt="${p.title} poster">
+      </div>
+    ` : ""}
+
+    <strong style="display:block; margin:1rem 0 .35rem; opacity:.95;">What I delivered</strong>
+    <ul>
+      ${p.highlights.map(h => `<li>${h}</li>`).join("")}
+    </ul>
   `;
+
+  // wire toggle poster
+  const btn = document.getElementById("togglePosterBtn");
+  const wrap = document.getElementById("posterWrap");
+  if (btn && wrap) {
+    btn.addEventListener("click", () => {
+      const isOpen = wrap.style.display !== "none";
+      wrap.style.display = isOpen ? "none" : "block";
+      btn.textContent = isOpen ? "View Poster" : "Hide Poster";
+    });
+  }
 
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
