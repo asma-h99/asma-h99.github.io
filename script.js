@@ -8,7 +8,7 @@ const yearEl = document.getElementById("year");
 
 const emailBtn = document.getElementById("emailBtn");
 const emailModal = document.getElementById("emailModal");
-const closeModal = document.getElementById("closeModal");
+const emailCloseBtn = document.getElementById("closeModal");
 
 const emailSubject = document.getElementById("emailSubject");
 const emailBody = document.getElementById("emailBody");
@@ -77,7 +77,7 @@ function hideModal(){
 }
 
 emailBtn?.addEventListener("click", openModal);
-closeModal?.addEventListener("click", hideModal);
+emailCloseBtn?.addEventListener("click", hideModal);
 
 // close when clicking overlay
 emailModal?.addEventListener("click", (e) => {
@@ -134,114 +134,6 @@ const PROJECTS = [
   }
 ];
 
-/* ========= Render ========= */
-document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.getElementById("projectsGrid");
-  const modal = document.getElementById("projectModal");
-  const modalBody = document.getElementById("modalBody");
-  const filterChips = Array.from(document.querySelectorAll(".chip"));
-
-  if (!grid) return;
-
-  const safeLink = (url) => url && url.trim().length > 0;
-
-  const cardTemplate = (p, idx) => {
-    const actions = [];
-    if (safeLink(p.links.demo)) actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>`);
-    if (safeLink(p.links.read)) actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
-    if (safeLink(p.links.code)) actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
-    actions.push(`<button class="pbtn" data-open="${idx}">Details</button>`);
-
-    return `
-      <article class="project-card" data-cats="${p.category.join(",")}">
-        <div class="project-top">
-          <div class="project-title">
-            <h3>${p.title}</h3>
-            <span class="badge">${p.badge}</span>
-          </div>
-          <p class="project-desc">${p.desc}</p>
-          <div class="tags">
-            ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
-          </div>
-        </div>
-        <div class="project-actions">
-          ${actions.join("")}
-        </div>
-      </article>
-    `;
-  };
-
-  const renderProjects = (filter = "all") => {
-    const filtered =
-      filter === "all"
-        ? PROJECTS
-        : PROJECTS.filter(p => (p.category || []).includes(filter));
-
-    grid.innerHTML = filtered.map(cardTemplate).join("");
-
-    // Details button
-    grid.querySelectorAll("[data-open]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const idx = Number(btn.dataset.open);
-        const p = filtered[idx];
-        if (!p || !modal || !modalBody) return;
-
-        modalBody.innerHTML = `
-          <h3 style="margin:0 0 8px 0;">${p.title}</h3>
-          <p class="muted" style="margin:0 0 12px 0;">${p.desc}</p>
-
-          <div class="tags" style="margin-bottom:12px;">
-            ${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}
-          </div>
-
-          <h4 style="margin:0 0 8px 0;">Key Highlights</h4>
-          <ul class="muted" style="margin:0 0 14px 18px;">
-            ${(p.highlights || []).map(h => `<li>${h}</li>`).join("")}
-          </ul>
-
-          <div class="project-actions">
-            ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Open Dashboard</a>` : ""}
-            ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
-            ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
-          </div>
-        `;
-
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-      });
-    });
-  };
-
-  // Filters
-  filterChips.forEach(chip => {
-    chip.addEventListener("click", () => {
-      filterChips.forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      renderProjects(chip.dataset.filter);
-    });
-  });
-
-  // Close modal
-  const closeModal = () => {
-    if (!modal) return;
-    modal.classList.remove("show");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  document.addEventListener("click", (e) => {
-    if (e.target && e.target.hasAttribute("data-close")) closeModal();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal?.classList.contains("show")) closeModal();
-  });
-
-  // Initial render
-  renderProjects("all");
-});
-
 
 /* ========= Render ========= */
 const grid = document.getElementById("projectsGrid");
@@ -292,7 +184,7 @@ function filterProjects(cat) {
 }
 
 /* ========= Modal ========= */
-function openModal(p) {
+function openProjectModal(p) {
   modalBody.innerHTML = `
     <h3>${p.title}</h3>
     <p style="opacity:.9; line-height:1.55; margin:.2rem 0 .85rem;">${p.desc}</p>
@@ -314,7 +206,7 @@ function openModal(p) {
   document.body.style.overflow = "hidden";
 }
 
-function closeModal() {
+function closeProjectModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
@@ -324,17 +216,17 @@ function wireDetailsButtons() {
   grid.querySelectorAll("[data-open]").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = Number(btn.getAttribute("data-open"));
-      openModal(PROJECTS[idx]);
+      openProjectModal(PROJECTS[idx]);
     });
   });
 }
 
 modal?.addEventListener("click", (e) => {
-  if (e.target.matches("[data-close]")) closeModal();
+  if (e.target.matches("[data-close]")) closeProjectModal();
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  if (e.key === "Escape" && modal.classList.contains("open")) closeProjectModal();
 });
 
 /* ========= Filters ========= */
