@@ -147,30 +147,42 @@ function safeLink(url) {
 function cardTemplate(p, idx) {
   const actions = [];
 
-  if (safeLink(p.links.demo)) actions.push(`<a class="pbtn" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>`);
-  if (safeLink(p.links.read)) actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
-  if (safeLink(p.links.code)) actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
-  actions.push(`<button class="pbtn" data-open="${idx}">Details</button>`);
+  if (safeLink(p.links.demo))
+    actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>`);
+  if (safeLink(p.links.read))
+    actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
+  if (safeLink(p.links.code))
+    actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
+
+  actions.push(`<button class="pbtn secondary" data-open="${idx}">Details</button>`);
 
   return `
     <article class="project-card" data-cats="${p.category.join(",")}">
+      ${p.image ? `
+        <div class="project-thumb">
+          <img src="${p.image}" alt="${p.title}">
+        </div>
+      ` : ""}
+
       <div class="project-top">
         <div class="project-title">
           <h3>${p.title}</h3>
           <span class="badge">${p.badge}</span>
         </div>
+
         <p class="project-desc">${p.desc}</p>
+
         <div class="tags">
           ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
         </div>
       </div>
+
       <div class="project-actions">
         ${actions.join("")}
       </div>
     </article>
   `;
 }
-
 function renderProjects(list) {
   grid.innerHTML = list.map(cardTemplate).join("");
   wireProjectHoverGlow();
