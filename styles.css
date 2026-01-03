@@ -859,22 +859,18 @@ textarea{ resize: vertical; min-height: 110px; }
   overflow: auto;            /* مهم */
 }
 
-/* Poster inside modal: controlled size */
 #projectModal .modal-poster{
-  max-height: 40vh;          /* أصغر حتى يبان الكلام */
+  width: 80%;
   border-radius: 16px;
-  width:80%;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   margin-bottom: 1rem;
 }
 
-/* Poster image fits without taking whole page */
 #projectModal .modal-poster img{
   width: 80%;
   height: auto;
   display: block;
-   
+  background: #f6f4ee;
 }
-
