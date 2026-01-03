@@ -116,7 +116,6 @@ const PROJECTS = [
   {
     title: "Education & Unemployment in the U.S. States",
     category: ["powerbi"],
-    badge: "Featured • Tableau",
     desc: "An analytical project exploring how education levels influence unemployment rates across U.S. counties (2015–2020), highlighting regional disparities and the impact of COVID-19.",
     tags: ["Tableau", "Data Analysis", "Education", "Public Policy"],
     links: {
