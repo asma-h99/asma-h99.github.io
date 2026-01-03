@@ -853,19 +853,22 @@ textarea{ resize: vertical; min-height: 110px; }
   opacity: 1;
 }
 /* Full poster inside Details modal */
-#projectModal .modal-poster{
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  margin-bottom: 1rem;
+/* Modal: make content scrollable */
+#projectModal .modal-card{
+  max-height: 86vh;          /* مهم */
+  overflow: auto;            /* مهم */
 }
 
+/* Poster inside modal: controlled size */
+#projectModal .modal-poster{
+  max-height: 48vh;          /* أصغر حتى يبان الكلام */
+  overflow: auto;            /* لو الصورة طويلة، جوّاها scroll */
+}
+
+/* Poster image fits without taking whole page */
 #projectModal .modal-poster img{
   width: 100%;
   height: auto;
   display: block;
-  background: #f6f4ee;
 }
 
