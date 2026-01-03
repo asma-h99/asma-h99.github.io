@@ -113,61 +113,135 @@ function onScroll() {
 
 /* ========= Projects data (Edit this only) ========= */
 const PROJECTS = [
-{
-  title: "Education & Unemployment in the U.S. States",
-  category: ["analytics", "bi"],
-  badge: "Featured • Tableau",
-  desc: "Explored how education levels relate to unemployment across U.S. counties (2015–2020), highlighting regional disparities and COVID-19 impact.",
-  tags: ["Tableau", "Python", "EDA", "Public Policy"],
-  links: {
-    demo: "https://public.tableau.com/app/profile/asma.hattab/viz/EducationUnemploymentinU_S_/Main",
-    read: "assets/education-report.pdf",
-    code: "https://colab.research.google.com/drive/1c5iG-JRftGAzVC01j5zXOfVyiOgFxDNo"
-  },
-  highlights: [
-    "Found a strong negative correlation (−0.62) between bachelor’s attainment and unemployment.",
-    "Rural areas showed ~2× higher unemployment vs. urban regions across 2015–2020.",
-    "COVID-19 drove sharp spikes in tourism-dependent states (e.g., Nevada, Hawaii)."
-  ],
-  featured: true
-},
-
-
   {
-    title: "Huroufi (Arabic GenAI Learning Prototype)",
-    category: ["genai"],
-    badge: "GenAI • Edu",
-    desc: "Arabic educational experience concept: generates text, images, and audio to teach children in a fun interactive flow.",
-    tags: ["OpenAI", "Arabic", "Streamlit", "Prompting"],
+    title: "Education & Unemployment in the U.S. States",
+    category: ["analytics", "bi"],
+    badge: "Featured • Tableau",
+    desc: "An analytical project exploring how education levels influence unemployment rates across U.S. counties (2015–2020), highlighting regional disparities and the impact of COVID-19.",
+    tags: ["Tableau", "Data Analysis", "Education", "Public Policy"],
     links: {
-      code: "https://github.com/asma-h99/7urofy",
+      demo: "https://public.tableau.com/app/profile/asma.hattab/viz/EducationUnemploymentinU_S_/Main",
       read: "",
-      demo: ""
+      code: ""
     },
     highlights: [
-      "Designed user flow for kids (simple + safe).",
-      "Automated content generation (text → image → audio).",
-      "Focused on usability + learning outcomes."
-    ]
-  },
-  {
-    title: "DataDrip Hackathon (Qafza) — Power BI Dashboards",
-    category: ["bi", "analytics"],
-    badge: "Power BI",
-    desc: "Built dashboards and insights under time pressure — focused on KPI clarity, filters, and stakeholder-ready views.",
-    tags: ["Power BI", "DAX", "Dashboards", "KPIs"],
-    links: {
-      code: "",
-      read: "",
-      demo: "PUT_TABLEAU_OR_POWERBI_PUBLIC_LINK_HERE"
-    },
-    highlights: [
-      "KPI design + layout for fast decision-making.",
-      "Interactive filters + drilldowns.",
-      "Polished visuals with consistent story."
-    ]
+      "Higher education levels are consistently associated with lower unemployment rates.",
+      "A strong negative correlation (−0.62) between bachelor’s degree attainment and unemployment.",
+      "Rural areas experienced nearly double the unemployment of urban regions.",
+      "COVID-19 sharply increased unemployment in tourism-dependent states."
+    ],
+    featured: true
   }
 ];
+
+/* ========= Render ========= */
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("projectsGrid");
+  const modal = document.getElementById("projectModal");
+  const modalBody = document.getElementById("modalBody");
+  const filterChips = Array.from(document.querySelectorAll(".chip"));
+
+  if (!grid) return;
+
+  const safeLink = (url) => url && url.trim().length > 0;
+
+  const cardTemplate = (p, idx) => {
+    const actions = [];
+    if (safeLink(p.links.demo)) actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>`);
+    if (safeLink(p.links.read)) actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
+    if (safeLink(p.links.code)) actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
+    actions.push(`<button class="pbtn" data-open="${idx}">Details</button>`);
+
+    return `
+      <article class="project-card" data-cats="${p.category.join(",")}">
+        <div class="project-top">
+          <div class="project-title">
+            <h3>${p.title}</h3>
+            <span class="badge">${p.badge}</span>
+          </div>
+          <p class="project-desc">${p.desc}</p>
+          <div class="tags">
+            ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
+          </div>
+        </div>
+        <div class="project-actions">
+          ${actions.join("")}
+        </div>
+      </article>
+    `;
+  };
+
+  const renderProjects = (filter = "all") => {
+    const filtered =
+      filter === "all"
+        ? PROJECTS
+        : PROJECTS.filter(p => (p.category || []).includes(filter));
+
+    grid.innerHTML = filtered.map(cardTemplate).join("");
+
+    // Details button
+    grid.querySelectorAll("[data-open]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const idx = Number(btn.dataset.open);
+        const p = filtered[idx];
+        if (!p || !modal || !modalBody) return;
+
+        modalBody.innerHTML = `
+          <h3 style="margin:0 0 8px 0;">${p.title}</h3>
+          <p class="muted" style="margin:0 0 12px 0;">${p.desc}</p>
+
+          <div class="tags" style="margin-bottom:12px;">
+            ${(p.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}
+          </div>
+
+          <h4 style="margin:0 0 8px 0;">Key Highlights</h4>
+          <ul class="muted" style="margin:0 0 14px 18px;">
+            ${(p.highlights || []).map(h => `<li>${h}</li>`).join("")}
+          </ul>
+
+          <div class="project-actions">
+            ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Open Dashboard</a>` : ""}
+            ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
+            ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
+          </div>
+        `;
+
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+  };
+
+  // Filters
+  filterChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      filterChips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      renderProjects(chip.dataset.filter);
+    });
+  });
+
+  // Close modal
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  document.addEventListener("click", (e) => {
+    if (e.target && e.target.hasAttribute("data-close")) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("show")) closeModal();
+  });
+
+  // Initial render
+  renderProjects("all");
+});
+
 
 /* ========= Render ========= */
 const grid = document.getElementById("projectsGrid");
