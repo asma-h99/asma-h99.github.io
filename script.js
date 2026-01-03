@@ -147,7 +147,7 @@ function safeLink(url) {
 function cardTemplate(p, idx) {
   const actions = [];
 
-  if (safeLink(p.links.demo)) actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>`);
+  if (safeLink(p.links.demo)) actions.push(`<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>`);
   if (safeLink(p.links.read)) actions.push(`<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>`);
   if (safeLink(p.links.code)) actions.push(`<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>`);
   actions.push(`<button class="pbtn" data-open="${idx}">Details</button>`);
@@ -196,7 +196,7 @@ function openProjectModal(p) {
       ${p.highlights.map(h => `<li>${h}</li>`).join("")}
     </ul>
     <div class="project-actions" style="margin-top:1rem; padding:0;">
-      ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live</a>` : ""}
+      ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
       ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
       ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
     </div>
