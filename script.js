@@ -198,26 +198,35 @@ function filterProjects(cat) {
 /* ========= Modal ========= */
 function openProjectModal(p) {
   modalBody.innerHTML = `
+    ${p.image ? `
+      <div class="modal-poster">
+        <img src="${p.image}" alt="${p.title} poster">
+      </div>
+    ` : ""}
+
     <h3>${p.title}</h3>
     <p style="opacity:.9; line-height:1.55; margin:.2rem 0 .85rem;">${p.desc}</p>
+
     <div class="tags" style="margin-bottom:.85rem;">
       ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
     </div>
+
     <strong style="display:block; margin:.6rem 0 .35rem; opacity:.95;">What I delivered</strong>
     <ul>
       ${p.highlights.map(h => `<li>${h}</li>`).join("")}
     </ul>
+
     <div class="project-actions" style="margin-top:1rem; padding:0;">
-      ${safeLink(p.links.demo) ? `<a class="pbtn" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
+      ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
       ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
       ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
     </div>
   `;
+
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
-
 function closeProjectModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
