@@ -854,9 +854,7 @@ textarea{ resize: vertical; min-height: 110px; }
 }
 /* Full poster inside Details modal */
 /* Modal: make content scrollable */
-#projectModal *{
-  font-family: var(--font);
-}
+#projectModal, #projectModal * { font-family: var(--font); }
 #projectModal .modal-card{
   max-height: 86vh;          /* مهم */
   overflow: auto;            /* مهم */
