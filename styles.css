@@ -313,12 +313,10 @@ strong{ font-weight: 750; }
 }
 
 .chip__icon img{
-  width: 20px;
-  height: 20px;
-  display:block;
-
-  filter: brightness(0) invert(1);
-  opacity: .95;
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain;
+  display: block;
 }
 
 /* Right hero card */
