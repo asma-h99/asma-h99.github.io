@@ -10,7 +10,9 @@
 
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.70);
-
+   
+  --nav-active: #38BDF8;
+   
   --accent: #4EE1FF;
   --accent2: #A78BFA;
 
@@ -171,10 +173,11 @@ strong{ font-weight: 750; }
   border-color: rgba(255,255,255,.10);
 }
 .nav a.active{
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.96);
-  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(56,189,248,.14);   
+  color: #38BDF8;                    
+  border: 1px solid rgba(56,189,248,.40);
 }
+
 
 .nav__toggle{
   display:none;
