@@ -117,7 +117,7 @@ const PROJECTS = [
     title: "Education & Unemployment in the U.S. States",
     category: ["powerbi"],
     desc: "An analytical project exploring how education levels influence unemployment rates across U.S. counties (2015–2020), highlighting regional disparities and the impact of COVID-19.",
-    tags: ["Tableau", "Data Analysis", "Education", "Public Policy"],
+    tags: ["Tableau","Python", "Data Analysis", "EDA", "Public Policy"],
     links: {
       demo: "https://public.tableau.com/app/profile/asma.hattab/viz/EducationUnemploymentinU_S_/Main",
       read: "",
@@ -125,11 +125,14 @@ const PROJECTS = [
     },
     image: "assets/education-unemployment-poster.png",
     highlights: [
+      "Cleaned and merged county-level datasets using Python (handled missing values, removed redundant columns).",
       "Higher education levels are consistently associated with lower unemployment rates.",
       "A strong negative correlation (−0.62) between bachelor’s degree attainment and unemployment.",
       "Rural areas experienced nearly double the unemployment of urban regions.",
       "COVID-19 sharply increased unemployment in tourism-dependent states."
     ],
+
+
     featured: true
   }
 ];
@@ -205,12 +208,18 @@ function openProjectModal(p) {
       ${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}
     </div>
 
-    <div class="project-actions" style="margin: .25rem 0 1rem; padding:0;">
-      ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
-      ${p.image ? `<button class="pbtn" id="togglePosterBtn" type="button">View Poster</button>` : ""}
-      ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
-      ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
-    </div>
+<div class="project-actions" style="margin: .25rem 0 1rem; padding:0;">
+  ${safeLink(p.links.demo) ? `<a class="pbtn primary" href="${p.links.demo}" target="_blank" rel="noopener">View Dashboard</a>` : ""}
+
+  ${p.image ? `<button class="pbtn" id="togglePosterBtn" type="button">View Poster</button>` : ""}
+
+  ${p.image ? `<a class="pbtn ghost" id="downloadPosterBtn" href="${p.image}" download style="display:none;">Download Poster</a>` : ""}
+
+  ${safeLink(p.links.read) ? `<a class="pbtn" href="${p.links.read}" target="_blank" rel="noopener">Read</a>` : ""}
+
+  ${safeLink(p.links.code) ? `<a class="pbtn ghost" href="${p.links.code}" target="_blank" rel="noopener">Code</a>` : ""}
+</div>
+
 
     ${p.image ? `
       <div class="modal-poster" id="posterWrap" style="display:none;">
@@ -232,6 +241,9 @@ function openProjectModal(p) {
       const isOpen = wrap.style.display !== "none";
       wrap.style.display = isOpen ? "none" : "block";
       btn.textContent = isOpen ? "View Poster" : "Hide Poster";
+      const dl = document.getElementById("downloadPosterBtn");
+      if (dl) dl.style.display = isOpen ? "none" : "inline-flex";
+
     });
   }
 
