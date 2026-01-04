@@ -304,7 +304,22 @@ strong{ font-weight: 750; }
   border-color: rgba(255,255,255,.22);
   transform: translateY(-1px);
 }
-.chip__icon{ display:inline-flex; }
+.chip__icon{
+  width: 34px;
+  height: 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.chip__icon img{
+  width: 20px;
+  height: 20px;
+  display:block;
+
+  filter: brightness(0) invert(1);
+  opacity: .95;
+}
 
 /* Right hero card */
 .hero__card{
