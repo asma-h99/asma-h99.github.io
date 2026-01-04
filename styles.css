@@ -464,9 +464,9 @@ strong{ font-weight: 750; }
   position: fixed;
   right: 18px;
   bottom: 18px;
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
   border: 1px solid rgba(255,255,255,.16);
   background: rgba(255,255,255,.08);
   color: rgba(255,255,255,.92);
