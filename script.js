@@ -313,4 +313,51 @@ renderProjects(PROJECTS);
 
 window.addEventListener("scroll", onScroll);
 onScroll();
+/* ========= AI Typing Intro (lightweight, no API) ========= */
+const aiIntroEl = document.getElementById("aiIntro");
+const regenBtn = document.getElementById("regenIntro");
+
+const AI_INTROS = [
+  "Hi, I’m Asma. I turn raw data into clear insights and reliable workflows using SQL, Python, and BI tools.",
+  "Hi, I’m Asma — I build data-driven insights and early-stage pipelines that help teams move from questions to decisions faster.",
+  "Hi, I’m Asma. I combine analytics and lightweight engineering to deliver dashboards, metrics, and dependable data workflows.",
+  "Hi, I’m Asma. I work across analytics, dashboarding, and automation — making data easier to trust, use, and scale."
+];
+
+let typingTimer = null;
+
+function pickIntro(){
+  return AI_INTROS[Math.floor(Math.random() * AI_INTROS.length)];
+}
+
+function typeText(el, text, speed = 18){
+  // clean old timers
+  if (typingTimer) clearTimeout(typingTimer);
+
+  el.classList.add("typing");
+  el.textContent = "";
+  let i = 0;
+
+  const step = () => {
+    el.textContent = text.slice(0, i);
+    i++;
+    if (i <= text.length){
+      typingTimer = setTimeout(step, speed);
+    } else {
+      // stop caret after finish? (optional)
+      // el.classList.remove("typing");
+    }
+  };
+  step();
+}
+
+function regenerateIntro(){
+  const text = pickIntro();
+  typeText(aiIntroEl, text, 16);
+}
+
+regenBtn?.addEventListener("click", regenerateIntro);
+
+// Init on load
+if (aiIntroEl) regenerateIntro();
 
