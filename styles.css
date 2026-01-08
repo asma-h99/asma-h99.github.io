@@ -776,7 +776,7 @@ textarea{ resize: vertical; min-height: 110px; }
 
 /* Filters look (only in Projects) */
 #projects .filters .chip{
-  padding: 10px 12px;               /* نفس Quick-links */
+  padding: 10px 12px;               
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(255,255,255,.04);
@@ -788,14 +788,12 @@ textarea{ resize: vertical; min-height: 110px; }
   transform: translateY(-1px);
 }
 
-/* Active filter: أوضح بكثير */
 #projects .filters .chip.active{
   background: linear-gradient(90deg, rgba(78,225,255,.18), rgba(167,139,250,.18));
   border-color: rgba(255,255,255,.28);
   box-shadow: 0 0 0 4px rgba(78,225,255,.10);
 }
 
-/* Dot indicator (اختياري بس حلو) */
 #projects .filters .chip.active::before{
   content:"";
   width:8px; height:8px;
@@ -806,7 +804,6 @@ textarea{ resize: vertical; min-height: 110px; }
   box-shadow: 0 0 10px rgba(78,225,255,.45);
 }
 
-/* Action buttons: نفس الخط والشكل */
 #projects .pbtn{
   padding: 10px 12px;
   border-radius: 14px;
@@ -827,7 +824,7 @@ textarea{ resize: vertical; min-height: 110px; }
 /* Project poster thumbnail – preview style */
 #projects .project-thumb{
   width: calc(100% - 2.2rem);
-  height: 220px;                 /* مش طويلة كثير */
+  height: 220px;                
   margin: 1.1rem 1.1rem 0;
   border-radius: 16px;
   overflow: hidden;
@@ -836,11 +833,10 @@ textarea{ resize: vertical; min-height: 110px; }
   position: relative;
 }
 
-/* Crop ذكي بدون تشويه */
 #projects .project-thumb img{
   width: 100%;
   height: 100%;
-  object-fit: cover;             /* preview */
+  object-fit: cover;            
   object-position: top center;  
   transition: transform .5s ease;
 }
@@ -898,7 +894,7 @@ textarea{ resize: vertical; min-height: 110px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 40px;                 /* يمنع التمدد */
+  flex: 0 0 40px;                
   border-radius: 12px;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.12);
@@ -909,4 +905,32 @@ textarea{ resize: vertical; min-height: 110px; }
   height: 22px !important;
   object-fit: contain;
   display: block;
+}
+/* ===== AI Typing Intro ===== */
+#aiIntro{
+  min-height: 56px;           
+}
+
+.typing{
+  position: relative;
+  display: inline;
+  padding-right: 6px;
+}
+
+/* caret */
+.typing::after{
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 1.1em;
+  margin-left: 6px;
+  transform: translateY(3px);
+  background: rgba(255,255,255,.75);
+  animation: blink .9s infinite;
+  border-radius: 2px;
+}
+
+@keyframes blink{
+  0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
 }
