@@ -934,3 +934,44 @@ textarea{ resize: vertical; min-height: 110px; }
   0%, 45% { opacity: 1; }
   55%, 100% { opacity: 0; }
 }
+/* Animated grid overlay */
+.hero{
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-60px;                
+  pointer-events:none;
+  opacity: .14;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.12) 0px,
+      rgba(255,255,255,.12) 1px,
+      transparent 1px,
+      transparent 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.10) 0px,
+      rgba(255,255,255,.10) 1px,
+      transparent 1px,
+      transparent 48px
+    );
+
+  transform: translate3d(0,0,0);
+  animation: gridDrift 14s linear infinite;
+}
+
+@keyframes gridDrift{
+  0%   { background-position: 0px 0px, 0px 0px; }
+  100% { background-position: 160px 120px, 160px 120px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero::before{ animation: none; }
+}
